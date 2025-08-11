@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Airconditioner,
   Cable,
@@ -92,6 +92,8 @@ const JobCard: FC<JobCardProps> = ({
 };
 
 export default function OngoingJobsPage() {
+  const [activeTab, setActiveTab] = useState("Unread");
+
   const jobs: JobCardProps[] = [
     {
       title: "Ac Service",
@@ -127,18 +129,21 @@ export default function OngoingJobsPage() {
   return (
     <div className="p-[60px] pt-8 max-w-[1400px] mx-auto ">
       <div className="flex gap-8 border-b border-gray-200 mb-5">
-        <button className="pb-[13px] border-b-2 border-(--orange) text-(--primary-black) typo-label font-semibold">
-          All Ongoing Jobs
-        </button>
-        <button className="pb-[13px] text-(--grey-text) typo-label font-normal">
-          Ongoing Service Contracts
-        </button>
-        <button className="pb-[13px] text-(--grey-text) typo-label font-normal">
-          Private Jobs
-        </button>
+      {["All Ongoing Jobs", "Ongoing Service Contracts", "Private Jobs"].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`pb-[13px]  typo-label ${
+              tab === activeTab
+                ? "border-b-2 border-(--orange) text-(--primary-black) font-semibold"
+                : "text-(--grey-text) font-normal "
+            }`}>
+            {tab}
+          </button>
+        ))}
       </div>
 
-      {jobs.map((job, index) => (
+      {activeTab=== "All Ongoing Jobs" && jobs.map((job, index) => (
         <JobCard key={index} {...job} />
       ))}
     </div>
