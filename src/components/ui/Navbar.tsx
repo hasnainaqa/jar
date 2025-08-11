@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
-    { label: "Find Job", path: "/find-job" },
+    { label: "Find Job", path: "/" },
     { label: "On Going Jobs", path: "/ongoingjobs" },
     { label: "Messages", path: "/messages" },
   ];
@@ -16,13 +16,15 @@ export default function Navbar() {
   return (
 <div className="fixed top-0 left-0 z-50 py-2.5 px-[60px] bg-white w-full flex justify-center shadow-light">
 <div className="w-full max-w-[1300px] flex items-center justify-between">
+        <Link href ="/">
         <Image
           src="/assets/icons/SiteLogo.svg"
           width={57}
           height={60}
           alt="JAR logo"
           className=""
-        />
+          />
+          </Link>
         <div className="flex items-center gap-10">
           <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
