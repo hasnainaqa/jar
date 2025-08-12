@@ -92,7 +92,7 @@ const JobCard: FC<JobCardProps> = ({
 };
 
 export default function OngoingJobsPage() {
-  const [activeTab, setActiveTab] = useState("Unread");
+  const [activeTab, setActiveTab] = useState("All Ongoing Jobs");
 
   const jobs: JobCardProps[] = [
     {

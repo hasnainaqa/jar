@@ -190,7 +190,9 @@ export default function ChatUI() {
   ]);
 
   return (
-    <div className="max-w-[1300px] mx-auto shadow-dark rounded-xl flex flex-col lg:flex-row mt-8 h-[85vh] pb-12 relative">
+    <div className="max-w-[1300px] mx-auto mt-8 pb-12 ">
+      <h2 className="font-semibold typo-heading3  ">Messages</h2>
+    <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 h-[75vh] ">
       
       {sidebarOpen && (
         <div
@@ -204,11 +206,12 @@ export default function ChatUI() {
           sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
       >
+        
         <MessagesChats />
       </div>
 
       <div className="w-full lg:w-[75%] flex flex-col bg-(--white)">
-        <div className="flex items-center justify-between gap-3 p-[16px] border-b border-[#E6E6E6]">
+        <div className="flex items-center justify-between gap-3 rounded-2xlp-[16px] border-b border-[#E6E6E6]">
           <div className="flex items-center gap-3">
             <button
               className="lg:hidden p-1 rounded hover:bg-gray-100"
@@ -334,6 +337,6 @@ export default function ChatUI() {
           </button>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 }
