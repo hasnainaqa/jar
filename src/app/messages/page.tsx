@@ -16,7 +16,7 @@ export default function ChatUI() {
   return (
     <div className="max-w-[1400px] px-[60px] mx-auto mt-8 pb-12 font-jakarta ">
       <h2 className="font-semibold typo-heading3  ">Messages</h2>
-      <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 h-[80vh] ">
+      <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 h-[80vh] overflow-hidden ">
         {sidebarOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-40 z-40 lg:hidden"

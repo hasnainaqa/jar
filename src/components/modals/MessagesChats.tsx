@@ -65,7 +65,7 @@ const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }
           sender: "me",
           type: "text",
           content:
-            "Sure, let me wrap up something quickly and I'll call you in 5 minutes.",
+            "Sure, let me wrap up something quickly and I'll tell you in 5 minutes.",
           time: "09:02 AM",
         },
         {
