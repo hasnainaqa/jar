@@ -15,3 +15,15 @@ export type JobDetailModalProps = {
   isOpen: boolean;
 };
 
+
+// type.ts
+export interface JobCardProps {
+  title: string;
+  description?: string;
+  tags?: string[];
+  date?: string;
+  time?: string;
+  location?: string;
+  tickets: number;
+  status?: string;
+}

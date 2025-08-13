@@ -14,7 +14,7 @@ export default function Navbar() {
 
 
   return (
-<div className="fixed top-0 left-0 z-50 py-2.5 px-[60px] bg-white w-full flex justify-center shadow-light">
+<div className="fixed top-0 left-0 z-50 py-2.5 px-[60px] bg-white w-full flex justify-center shadow-light font-jakarta">
 <div className="w-full max-w-[1300px] flex items-center justify-between">
         <Link href ="/">
         <Image

@@ -2,99 +2,17 @@
 
 import React, { FC, useState } from "react";
 import {
-  Airconditioner,
-  Cable,
-  Cleaning,
   Clock,
   CalenderBlank,
   MapPin,
 } from "@/components/assets/icons";
 import { tagIcons } from "@/components/modals/tagIcons";
-interface JobCardProps {
-  title: string; // Job title
-  description: string; // Job details
-  tags: string[]; // Small badges like "AC Service", "Cleaning"
-  date?: string; // Optional date
-  time?: string; // Optional time
-  location: string; // Job location
-  tickets: number; // Number of tickets for this job
-  status: "Active" | "On Hold"; // Job status
-}
-
-const JobCard: FC<JobCardProps> = ({
-  title,
-  description,
-  tags,
-  date,
-  time,
-  location,
-  tickets,
-  status,
-}) => {
-
-
-  return (
-    <div className="bg-[#FFFFFF] shadow-dark rounded-2xl p-6 mb-6 font-jakarta">
-
-      <div className="flex justify-between items-start">
-        <h3 className="typo-heading3 font-semibold">{title}</h3>
-        {tickets>0 && <div className="flex items-center gap-2 text-(--danger) typo-body font-normal">
-
-          <span className="h-3 w-3 bg-(--danger) rounded-full"></span>
-          {tickets} Tickets
-        </div>}
-      </div>
-
-
-      <p className="typo-body font-medium text-gray-600 my-4">{description}</p>
-
-      <div className="flex justify-between items-center">
-      <div className="flex flex-wrap gap-2 ">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="flex items-center gap-[6px] p-[10px] bg-(--light-grey) text-[#15120F] typo-small rounded-lg">
-            {tagIcons[tag] || <p></p> } {tag}
-          </span>
-        ))}
-
-        {date && (
-          <span className="flex items-center gap-[6px] p-[10px] bg-(--light-grey) text-[#15120F] typo-small rounded-lg">
-            <CalenderBlank size={16} /> {date}
-          </span>
-        )}
-
-        {time && (
-          <span className="flex items-center gap-[6px] p-[10px] bg-(--light-grey) text-[#15120F] typo-small rounded-lg">
-            <Clock size={16} /> {time}
-          </span>
-        )}
-
-        <span className="flex items-center gap-[6px] p-[10px] bg-(--light-grey) text-[#15120F] typo-small rounded-lg">
-          <MapPin size={16} /> {location}
-        </span>
-      </div>
-
-      {/* ---------- Status Badge ---------- */}
-      <div className="flex">
-        <span
-          className={`p-[10px] typo-small font-medium rounded-lg text-(--white) ${
-            status === "Active"
-              ? "bg-[#00A400]"
-              : "bg-(--orange)"
-          }`}>
-          Status: {status}
-        </span>
-      </div>
-      </div>
-    </div>
-  );
-};
-
+import { JobCardProps } from "@/components/modals/type";
+import JobCard from "@/components/modals/JobCard";
 export default function OngoingJobsPage() {
   const [activeTab, setActiveTab] = useState("All Ongoing Jobs");
 
-  const jobs: JobCardProps[] = [
+  const allOngoingJobs: JobCardProps[] = [
     {
       title: "Ac Service",
       description:
@@ -125,9 +43,73 @@ export default function OngoingJobsPage() {
       status: "On Hold",
     },
   ];
+  
+const ongoingContracts: JobCardProps[] = [
+  {
+    title: "Scheduled AC Servicing",
+    description:
+      "Need a technician for scheduled AC servicing, including a performance check, thorough cleaning, and preventive maintenance to extend the system’s life and ensure efficient operation.",
+    tags: ["Ac Service", "1000"], 
+    date: "08/06/2025",
+    time: "3:00 Pm",
+    location: "6391 Elgin St. Celina, Delaware 10299",
+    tickets: 1,
+    status: "Active",
+  },
+  {
+    title: "Property Maintenance Contract",
+    description:
+      "Looking for a contractor to maintain building facilities on an ongoing basis, covering HVAC services, electrical inspections, and general cleaning tasks for long-term upkeep.",
+    tags: ["Ac Service", "Cleaning", "Electrical"],
+    location: "6371 Elgin St. Celina, Delaware 10299",
+    tickets: 1,
+    status: "Active",
+  },
+  {
+    title: "Multi-System Maintenance",
+    description:
+      "Require a reliable maintenance provider to oversee the upkeep of multiple building systems, ensuring all equipment remains functional and operational throughout the year.",
+    tags: ["Ac Service", "Cleaning", "Electrical"],
+    location: "6391 Elgin St. Celina, Delaware 10299",
+    tickets: 0,
+    status: "On Hold",
+  },
+];
+
+const PrivateJobs: JobCardProps[] = [
+  {
+    title: "Private AC Repair",
+    description:
+      "Seeking a skilled AC repair technician for a private job to troubleshoot cooling issues, clean the unit, and restore optimal performance in a residential property.",
+    tags: ["Ac Service", "1000"], 
+    date: "08/06/2025",
+    time: "3:00 Pm",
+    location: "6391 Elgin St. Celina, Delaware 10299",
+    tickets: 4,
+    status: "Active",
+  },
+  {
+    title: "Exclusive Property Care",
+    description:
+      "Looking for a trusted maintenance provider to take care of all facility-related issues for a private property, including electrical fixes, cleaning, and HVAC servicing.",
+    tags: ["Ac Service", "Cleaning", "Electrical"],
+    location: "6371 Elgin St. Celina, Delaware 10299",
+    tickets: 2,
+    status: "Active",
+  },
+  {
+    title: "Personal Building Maintenance",
+    description:
+      "Need a dedicated service provider to manage ongoing building maintenance tasks, including AC checks, electrical safety inspections, and thorough cleaning on a private contract basis.",
+    tags: ["Ac Service", "Cleaning", "Electrical"],
+    location: "6391 Elgin St. Celina, Delaware 10299",
+    tickets: 0,
+    status: "On Hold",
+  },
+];
 
   return (
-    <div className="p-[60px] pt-8 max-w-[1400px] mx-auto ">
+    <div className="p-[60px] pt-8 max-w-[1400px] mx-auto font-jakarta">
       <div className="flex gap-8 border-b border-gray-200 mb-5">
       {["All Ongoing Jobs", "Ongoing Service Contracts", "Private Jobs"].map((tab) => (
           <button
@@ -143,7 +125,13 @@ export default function OngoingJobsPage() {
         ))}
       </div>
 
-      {activeTab=== "All Ongoing Jobs" && jobs.map((job, index) => (
+      {activeTab=== "All Ongoing Jobs" && allOngoingJobs.map((job, index) => (
+        <JobCard key={index} {...job} />
+      ))}
+      {activeTab=== "Ongoing Service Contracts" && ongoingContracts.map((job, index) => (
+        <JobCard key={index} {...job} />
+      ))}
+      {activeTab=== "Private Jobs" && PrivateJobs.map((job, index) => (
         <JobCard key={index} {...job} />
       ))}
     </div>

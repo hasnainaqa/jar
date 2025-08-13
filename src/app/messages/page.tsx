@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import MessagesChats from "@/components/modals/MessagesChats";
-import { Link, Microphone } from "@/components/assets/icons";
+import { Link as LinkIcon, Microphone } from "@/components/assets/icons";
 import { Menu } from "lucide-react"; // simple icon for menu
+import Link from "next/link";
+
 
 interface Message {
   id: number;
@@ -190,9 +192,9 @@ export default function ChatUI() {
   ]);
 
   return (
-    <div className="max-w-[1300px] mx-auto mt-8 pb-12 ">
+    <div className="max-w-[1300px] mx-auto mt-8 pb-12 font-jakarta ">
       <h2 className="font-semibold typo-heading3  ">Messages</h2>
-    <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 h-[75vh] ">
+    <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 h-[80vh] ">
       
       {sidebarOpen && (
         <div
@@ -310,9 +312,11 @@ export default function ChatUI() {
                     <div className="typo-small text-(--grey-text)">
                       {msg.time}
                     </div>
+                    <Link href={`/job/${msg?.id}`}>
                     <button className="text-(--primary) typo-small font-semibold cursor-pointer">
                       View Proposal
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -329,7 +333,7 @@ export default function ChatUI() {
               className="flex-1 rounded-full border-none outline-none text-sm"
             />
             <button className="cursor-pointer">
-              <Link />
+              <LinkIcon />
             </button>
           </div>
           <button className="bg-(--primary) p-2 rounded-full cursor-pointer">
