@@ -1,22 +1,24 @@
 "use client";
 import { useState, FC } from "react";
 import { Chats } from "@/components/modals/type";
+import { MagnifyingGlass } from "../assets/icons";
 
 interface MessagesChatsProps {
   setSelectedChat: React.Dispatch<React.SetStateAction<Chats | null>>;
   selectedChat: Chats | null;
 }
 
-const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }) => {
+const MessagesChats: FC<MessagesChatsProps> = ({
+  setSelectedChat,
+  selectedChat,
+}) => {
   const [activeTab, setActiveTab] = useState("Unread");
 
   const [chats] = useState<Chats[]>([
     {
       id: 1,
       name: "Nguyen",
-      time: "19:28",
       img: "https://randomuser.me/api/portraits/women/40.jpg",
-      content: "pulvinar eleifend. In eu dolor",
       messages: [
         {
           id: 1,
@@ -48,9 +50,7 @@ const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }
     {
       id: 2,
       name: "Alex Johnson",
-      time: "21:45",
       img: "https://randomuser.me/api/portraits/men/42.jpg",
-      content: "Hey! Are you available for a quick call?",
       messages: [
         {
           id: 1,
@@ -81,12 +81,10 @@ const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }
       ],
     },
   ]);
-  
 
   const [activeChat, setActiveChat] = useState<Chats>(chats[0]);
   setSelectedChat(activeChat);
 
-  
   return (
     <div>
       {/* Tabs */}
@@ -106,11 +104,12 @@ const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }
       </div>
 
       {/* Search */}
-      <div className="m-6">
+      <div className="m-6  p-2 rounded-[10px] border border-[#E5E5E5] text-sm flex gap-2 w-auto items-center">
+        <MagnifyingGlass/>
         <input
           type="text"
           placeholder="Search keywords"
-          className="w-full p-2 rounded-[10px] border border-[#E5E5E5] text-sm"
+          className=""
         />
       </div>
 
@@ -120,7 +119,9 @@ const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }
           key={chat.id}
           onClick={() => setActiveChat(chat)}
           className={`px-6 pt-[14px] cursor-pointer gap-2 flex justify-between mt-3 ${
-            chat === activeChat ? "bg-[#F3F3F3]" : "bg-[#fcfafa] hover:bg-[#F3F3F3]"
+            chat === activeChat
+              ? "bg-[#F3F3F3]"
+              : "bg-[#fcfafa] hover:bg-[#F3F3F3]"
           }`}>
           <div className="gap-2 flex justify-between">
             <img
@@ -132,14 +133,20 @@ const MessagesChats: FC<MessagesChatsProps> = ({ setSelectedChat, selectedChat }
             />
             <div>
               <div className="flex justify-between items-center">
-                <p className="font-medium typo-label text-[#15120F] mb-[7px]">{chat.name}</p>
+                <p className="font-medium typo-label text-[#15120F] mb-[7px]">
+                  {chat.name}
+                </p>
               </div>
               <div className="flex-1">
-                <p className="text-xs font-normal text-[#808080]">{chat.content}</p>
+                <p className="typo-body font-normal text-[#808080]">
+                {chat.messages[chat.messages.length - 1].content.split(" ").slice(0, 5).join("") + " ..."}
+                </p>
               </div>
             </div>
           </div>
-          <p className="text-xs text-gray-400">{chat.time}</p>
+          <p className="text-xs text-gray-400">
+            {chat.messages[chat.messages.length - 1].time.split(" ")[0]}
+          </p>
         </div>
       ))}
     </div>

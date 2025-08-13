@@ -43,8 +43,6 @@ export interface Messages {
 export interface Chats {
   id: number;
   name: string; 
-  content: string;
-  time: string; 
   img?: string;
   messages: Messages[]; 
 }

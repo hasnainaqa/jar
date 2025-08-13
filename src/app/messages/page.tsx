@@ -14,9 +14,9 @@ export default function ChatUI() {
   const [selectedChat, setSelectedChat] = useState<Chats | null>(null);
 
   return (
-    <div className="max-w-[1400px] px-[60px] mx-auto mt-8 pb-12 font-jakarta ">
+    <div className="max-w-[1400px] sm:px-[60px] px-3 mx-auto mt-8 pb-12 font-jakarta ">
       <h2 className="font-semibold typo-heading3  ">Messages</h2>
-      <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 h-[80vh] overflow-hidden ">
+      <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 sm:h-[80vh] overflow-hidden ">
         {sidebarOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-40 z-40 lg:hidden"
@@ -24,7 +24,7 @@ export default function ChatUI() {
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full w-full sm:w-[300px] bg-white border-r border-[#F3F3F3] z-50 transform transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-[25%] ${
+          className={`fixed top-0 left-0 h-full w-3/4 sm:w-[300px] bg-white border-r border-[#F3F3F3] z-50 transform transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-[25%] ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }`}>
           <MessagesChats
