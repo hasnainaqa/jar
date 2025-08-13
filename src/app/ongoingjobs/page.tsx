@@ -85,7 +85,7 @@ const PrivateJobs: JobCardProps[] = [
     date: "08/06/2025",
     time: "3:00 Pm",
     location: "6391 Elgin St. Celina, Delaware 10299",
-    tickets: 4,
+    tickets: 3,
     status: "Active",
   },
   {
@@ -94,7 +94,7 @@ const PrivateJobs: JobCardProps[] = [
       "Looking for a trusted maintenance provider to take care of all facility-related issues for a private property, including electrical fixes, cleaning, and HVAC servicing.",
     tags: ["Ac Service", "Cleaning", "Electrical"],
     location: "6371 Elgin St. Celina, Delaware 10299",
-    tickets: 2,
+    tickets: 5,
     status: "Active",
   },
   {

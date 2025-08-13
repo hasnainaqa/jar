@@ -27,3 +27,25 @@ export interface JobCardProps {
   tickets: number;
   status?: string;
 }
+
+
+export interface Messages {
+  id: number;
+  sender?: "me" | "them"; 
+  type?: "text" | "offer"; 
+  content: string; 
+  time: string; 
+  offerTitle?: string;
+  offerDescription?: string;
+  img?: string;
+}
+
+export interface Chats {
+  id: number;
+  name: string; 
+  content: string;
+  time: string; 
+  img?: string;
+  messages: Messages[]; 
+}
+
