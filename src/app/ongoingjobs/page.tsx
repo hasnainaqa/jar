@@ -99,7 +99,7 @@ export default function OngoingJobsPage() {
       title: "Ac Service",
       description:
         "We’re looking for a reliable AC technician to provide thorough cleaning and maintenance for our air conditioning unit(s). The service should include filter cleaning, coil inspection, gas level check, and a full system diagnostic to ensure optimal performance and energy efficiency. Timely and professional service is expected.",
-      tags: ["Ac Service", "1000"], // Only main tags here (location/date/time added separately)
+      tags: ["Ac Service", "1000"], 
       date: "08/06/2025",
       time: "3:00 Pm",
       location: "6391 Elgin St. Celina, Delaware 10299",
@@ -136,7 +136,7 @@ export default function OngoingJobsPage() {
             className={`pb-[13px]  typo-label ${
               tab === activeTab
                 ? "border-b-2 border-(--orange) text-(--primary-black) font-semibold"
-                : "text-(--grey-text) font-normal "
+                : "text-(--grey-text) font-normal cursor-pointer "
             }`}>
             {tab}
           </button>
