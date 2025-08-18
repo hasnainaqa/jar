@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/ui/Navbar";
+import NavbarWrapper from "./NavbarWrapper"; // ✅ client wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,15 +20,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased pt-20`}
       >
-        <Navbar />
+        <NavbarWrapper /> {/* ✅ client component handles condition */}
         {children}
       </body>
     </html>

@@ -11,7 +11,7 @@ import InputField from "@/components/ui/InputField";
 import { useForm } from "react-hook-form";
 import { tagIcons } from "@/components/modals/tagIcons";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import Button from "@/components/ui/Button";
 
 // Simulated job database (replace with real data fetching)
@@ -33,9 +33,21 @@ const job = {
 
 export default function JobDetails({ params }) {
   const { control } = useForm();
-  // }
   const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=Saudi+Arabia&zoom=6&size=400x400&key=YOUR_API_KEY`;
+  const fileInputRef = useRef(null);
+    const [selectedFileName, setSelectedFileName] = useState('Upload Document');
 
+  const handleUploadClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log('Selected file:', file);
+      setSelectedFileName(file.name);
+    }
+  };
   return (
     <div className="flex justify-center px-10 pt-8 gap-6 font-jakarta">
       <div className="w-full max-w-[1300px] flex flex-col-reverse lg:flex-row gap-6 ">
@@ -129,7 +141,7 @@ Best regards,
 Ali Sadad
 +966 50 6978 398
 alisadad@mail.com`}
-                className=" w-full px-4 pb-3.5 pt-7.5 font-normal typo-body text-(--primary-black) rounded-[10px] border-2 border-(--light-grey) "
+                className=" w-full px-4 pb-3.5 pt-7.5 font-normal typo-body text-(--primary-black) rounded-[10px] border-2 border-(--light-grey) resize-none "
               />
 
               <label
@@ -144,14 +156,26 @@ alisadad@mail.com`}
             <h3 className="font-semibold typo-heading3 text-(--primary-black) mb-6">
               Add Relevant Document If Any
             </h3>
-            <div className="bg-(--light-grey) rounded-xl p-3 flex items-center justify-between gap-2 h-[60px] lg:w-[424px]">
-              <div className="flex gap-4">
-                <File />
-                Upload Document
-              </div>
-              <button>
+
+            <div>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                style={{ display: "none" }} 
+                accept="application/pdf, image/png, .doc, .docx"
+              />
+
+              <div className="bg-(--light-grey) rounded-xl p-3 flex items-center justify-between gap-2 h-[60px] lg:w-[424px] cursor-pointer"
+               onClick={handleUploadClick}>
+                <div className="flex gap-4">
+                  <File />
+                  {selectedFileName}
+                </div>
+                <button className="cursor-pointer">
                 <Plus />
-              </button>
+                </button>
+              </div>
             </div>
           </div>
 
