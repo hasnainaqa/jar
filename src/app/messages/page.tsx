@@ -146,12 +146,12 @@ export default function ChatUI() {
           </div>
 
           {/* Input area */}
-          <div className="p-3 border-t border-[#F3F3F3] flex items-center gap-2">
-            <div className="flex items-center p-2 rounded-full border border-[#F3F3F3] gap-2 flex-1">
+          <div className="p-3 border-t border-(--light-grey) flex items-center gap-2">
+            <div className="flex items-center p-2 rounded-full bg-(--light-grey) gap-2 flex-1 h-[50px]">
               <input
                 type="text"
                 placeholder="Type your message..."
-                className="flex-1 rounded-full border-none outline-none text-sm"
+                className="flex-1 rounded-full border-none outline-none text-sm px-4"
               />
               <button className="cursor-pointer">
                 <LinkIcon />
