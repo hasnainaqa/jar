@@ -21,6 +21,7 @@ import Cleaning from "./cleaning1.svg"
 import Microphone from "./Microphone.svg"
 import Link from "./Link.svg"
 import CLeaning from "./cLeaning.svg"
+
 export {
   PlusIcon,
   Plus2Icon,

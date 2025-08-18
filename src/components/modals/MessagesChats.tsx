@@ -118,7 +118,7 @@ const MessagesChats: FC<MessagesChatsProps> = ({
         <div
           key={chat.id}
           onClick={() => setActiveChat(chat)}
-          className={`px-6 pt-[14px] cursor-pointer gap-2 flex justify-between mt-3 ${
+          className={`px-6 py-[14px] cursor-pointer gap-2 flex justify-between mt-3  ${
             chat === activeChat
               ? "bg-[#F3F3F3]"
               : "bg-[#fcfafa] hover:bg-[#F3F3F3]"
@@ -139,12 +139,14 @@ const MessagesChats: FC<MessagesChatsProps> = ({
               </div>
               <div className="flex-1">
                 <p className="typo-body font-normal text-[#808080]">
-                {chat.messages[chat.messages.length - 1].content.split(" ").slice(0, 5).join("") + " ..."}
+                  Lorem ipsum dolor sit amet...
+                {/* {chat.messages[chat.messages.length - 1].content.split(" ").slice(0, 5).join("") + " ..."} */}
                 </p>
               </div>
             </div>
           </div>
           <p className="text-xs text-gray-400">
+            
             {chat.messages[chat.messages.length - 1].time.split(" ")[0]}
           </p>
         </div>

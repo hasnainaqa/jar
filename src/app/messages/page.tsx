@@ -3,7 +3,7 @@
 import { useState } from "react";
 import MessagesChats from "@/components/modals/MessagesChats";
 import { Link as LinkIcon, Microphone } from "@/components/assets/icons";
-import { Menu } from "lucide-react"; // simple icon for menu
+import { Menu, X } from "lucide-react"; // simple icon for menu
 import Link from "next/link";
 import { Chats } from "@/components/modals/type";
 
@@ -24,7 +24,7 @@ export default function ChatUI() {
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full w-3/4 sm:w-[300px] bg-white border-r border-[#F3F3F3] z-50 transform transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-[25%] ${
+          className={`fixed top-0 left-0 h-full w-3/4 sm:w-[300px] bg-white border-r border-[#F3F3F3] z-50 transform transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-[360px] ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }`}>
           <MessagesChats
@@ -49,16 +49,19 @@ export default function ChatUI() {
                 height={56}
                 className="rounded-full"
               />
-              <span className="ml-1 h-3 w-3 bg-green-500 rounded-full"></span>
+              <div className="relative">
+
+              <span className=" absolute -left-8 -bottom-7 ml-1 h-3.5 w-3.5 bg-[#0EC72C] rounded-full"></span>
+              </div>
               <div>
-                <p className="font-medium typo-heading3">
+                <p className="font-medium typo-heading3 text-[#333333]">
                   {selectedChat?.name}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="flex-1 p-4 space-y-4 overflow-y-auto max-h-[calc(85vh-140px)] sm:max-h-[calc(85vh-120px)]">
+          <div className="flex-1 p-6 space-y-4 overflow-y-auto max-h-[calc(85vh-140px)] sm:max-h-[calc(85vh-120px)]">
             {selectedChat?.messages.map((msg) =>
               msg.type === "text" ? (
                 <div
@@ -77,26 +80,25 @@ export default function ChatUI() {
                   )}
 
                   <div
-                    className={`max-w-[85%] sm:max-w-2xl p-3 rounded-xl typo-body font-normal break-words ${
+                    className={`max-w-[85%] sm:max-w-2xl p-3 rounded-xl typo-body font-normal break-words leading-5 ${
                       msg.sender === "me"
                         ? "bg-(--primary) text-(--white)"
                         : "bg-(--light-grey) text-[#303030]"
                     }`}>
                     {msg.content}
-                    <div className="typo-small mt-2 text-(--grey-text)">
+                    {msg.sender !== "me" ? (
+                    <div className="typo-small mt-2.5 text-(--grey-text) leading-4">
+                    {msg.time}
+                  </div>
+                  ):(
+                    <div className="typo-small mt-2.5 text-(--white) leading-4">
                       {msg.time}
                     </div>
+                  )}
+                    
                   </div>
 
-                  {msg.sender === "me" && (
-                    <img
-                      src={selectedChat.img}
-                      alt="User"
-                      width={24}
-                      height={24}
-                      className="rounded-full shrink-0"
-                    />
-                  )}
+                 
                 </div>
               ) : (
                 <div
@@ -110,14 +112,14 @@ export default function ChatUI() {
                     className="rounded-full shrink-0"
                   />
                   <div className="bg-gray-100 p-3 rounded-xl max-w-[85%] sm:max-w-2xl relative break-words">
-                    <p className="text-(--primary) font-normal typo-heading3">
+                    <p className="text-(--primary) font-normal typo-heading3 ">
                       {msg.content}
                     </p>
                     <div className="absolute right-3 top-3 flex gap-2">
-                      <button className="bg-(--danger) text-(--white) px-3 py-1 rounded-lg cursor-pointer">
-                        ✕
+                      <button className="bg-(--danger) text-(--white) px-[9.5px] py-[5.5px] rounded-lg cursor-pointer">
+                        <X size={24}/>
                       </button>
-                      <button className="bg-[#00A400] text-(--white) px-3 py-1 rounded-lg cursor-pointer">
+                      <button className="bg-[#00A400] text-(--white) px-3 py-1 rounded-lg cursor-pointer typo-small font-medium">
                         Accept
                       </button>
                     </div>
