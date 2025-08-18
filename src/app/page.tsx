@@ -4,7 +4,9 @@ import Button from "@/components/ui/Button";
 import JobDetails from "@/components/modals/JobDetails";
 import {
   AlignBottom,
+  CLeaning,
   Cleaning,
+  CleaningIcon,
   MagnifyingGlass,
   MapPin,
   Star,
@@ -56,19 +58,18 @@ export default function Home() {
       <div className="w-full max-w-[1300px] flex justify-between flex-col-reverse lg:flex-row">
         <div className="lg:w-[75%] mr-6 ">
           <div className="flex-1">
-            {/*  Search Bar */}
-            <div className="relative w-full p-4 flex items-center gap-2 mb-4 text-(--grey-text) bg-(--light-grey) h-[50px] rounded-xl">
+            <div className="relative w-full p-4 flex items-center gap-4 mb-6 text-(--grey-text) bg-(--light-grey) h-[50px] rounded-[10px]">
               <MagnifyingGlass />
               <input
                 type="text"
                 placeholder="Search Jobs"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-(--light-grey) placeholder:typo-body pr-4 py-3 typo-body text-(--black) rounded-xl focus:outline-none"
+                className="w-full bg-(--light-grey) placeholder:typo-body pr-4 py-3 typo-body text-(--black) focus:outline-none"
               />
             </div>
 
-            <h2 className="text-(--primary-black) text-lg sm:text-xl font-semibold mb-4">
+            <h2 className="text-(--primary-black) typo-heading3 sm:text-xl font-semibold mb-4">
               Find Jobs
             </h2>
 
@@ -82,14 +83,14 @@ export default function Home() {
                     key={idx}
                     className="p-6 rounded-2xl shadow-dark bg-[#ffffff]">
                     <div className="flex justify-between items-start">
-                      <h3 className="text-lg font-semibold text-(--primary-black)">
+                      <h3 className="typo-heading3 font-semibold text-(--primary-black)">
                         {job.title}
                       </h3>
                       <span className="typo-small font-medium text-(--grey-text)">
                         Posted {job.posted}
                       </span>
                     </div>
-                    <p className="typo-body font-medium text-(--primary-black) mt-4">
+                    <p className="leading-[22px] text-sm font-medium text-(--primary-black) mt-4">
                       {job.desc}
                     </p>
 
@@ -97,15 +98,15 @@ export default function Home() {
                       {job.tags.map((tag, i) => (
                         <div
                           key={i}
-                          className="typo-small font-medium p-3 bg-(--light-grey) rounded-lg text-[#15120F] flex items-center gap-[6px]">
+                          className="typo-small font-medium p-[10px] bg-(--light-grey) rounded-lg text-[#15120F] flex items-center gap-2">
                           {tagIcons[tag]}
                           <span>{tag}</span>
                         </div>
                       ))}
                     </div>
 
-                    <div className="flex justify-between items-center flex-wrap gap-1 mt-4">
-                      <div className="flex items-center gap-[6px] typo-body text-(--grey-text)">
+                    <div className="flex justify-between items-center flex-wrap mt-4">
+                      <div className="flex items-center font-medium gap-[6px] text-xs leading-[100%] text-(--grey-text)">
                         <MapPin />
                         {job.location}
                       </div>
@@ -138,29 +139,29 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-lg text-(--primary) ">
+                  <p className="font-semibold typo-heading3 text-(--primary) ">
                     Ali Sadad
                   </p>
                 </div>
               </div>
-              <hr className="border-(--light-grey) border-[1px] w-[100%] " />
-              <div className="flex items-center text-(--primary) gap-2 font-semibold text-lg py-6">
+              <hr className="border-(--light-grey) w-[100%] " />
+              <div className="flex items-center text-(--primary) gap-2 font-semibold typo-heading3 py-6">
                 <AlignBottom />
                 <h3>Statistics</h3>
               </div>
-              <div className="flex gap-2 font-medium typo-small">
+              <div className="flex gap-2 font-medium typo-small items-center ">
                 <Star />
                 <p>4.5</p>
               </div>
               <div className="mt-4 typo-body text-gray-600 flex gap-8">
                 <div>
-                  <h2 className="font-semibold text-lg text-(--primary) pb-2">
+                  <h2 className="font-semibold typo-label text-(--primary) pb-2">
                     $200k+
                   </h2>
                   <p className="font-normal typo-small">Total Earnings</p>
                 </div>
                 <div>
-                  <h2 className="font-semibold text-lg text-(--primary) pb-2">
+                  <h2 className="font-semibold typo-label text-(--primary) pb-2">
                     150
                   </h2>
                   <p className="font-normal typo-small">Total Jobs</p>
@@ -169,7 +170,7 @@ export default function Home() {
             </div>
 
             <div className="bg-(--white) p-6 rounded-lg shadow-dark mt-6 ">
-              <h4 className="font-semibold text-lg mb-2 text-(--primary-black)">
+              <h4 className="font-semibold typo-heading3 mb-[18px] text-(--primary-black)">
                 Services Provided By You
               </h4>
               <div className="space-y-2">
@@ -179,7 +180,7 @@ export default function Home() {
                     <div
                       key={i}
                       className="flex items-center p-4 border border-(--light-grey) rounded-lg typo-body text-(--primary-black) gap-4">
-                      <Cleaning />
+                      <CLeaning className = "h-[32px] w-[32px]" />
                       {service}
                     </div>
                   ))}

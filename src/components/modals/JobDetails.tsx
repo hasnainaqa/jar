@@ -32,7 +32,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
 >
         <div className="border p-6 rounded-xl border-(--light-grey)">
           <div className=" flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-(--primary-black)">
+            <h2 className="typo-heading3 font-semibold text-(--primary-black)">
               Client Information
             </h2>
           </div>
@@ -45,7 +45,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
                   className="w-15 h-15 rounded-full object-cover"
                   alt="Client"
                 />
-                <p className="font-semibold text-lg text-(--primary) text-[15px]">
+                <p className="font-semibold typo-heading3 text-(--primary) text-[15px]">
                   Abdullah Sudais
                 </p>
               </div>
@@ -61,7 +61,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
 
         <div className="pt-6 space-y-6">
           <div>
-            <h3 className="text-(--primary) font-semibold text-lg pb-4">
+            <h3 className="text-(--primary) font-semibold typo-heading3 pb-4">
               {selectedJob?.title}
             </h3>
             <p className="typo-body font-medium text-(--primary-black) leading-relaxed">
@@ -70,7 +70,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg mb-4">Services Needed</h4>
+            <h4 className="font-semibold typo-heading3 mb-4">Services Needed</h4>
             <div className="flex flex-wrap gap-2">
               {selectedJob?.tags.map((tag) => (
                 <div
@@ -83,7 +83,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg mb-4">Services Breakdown</h4>
+            <h4 className="font-semibold typo-heading3 mb-4">Services Breakdown</h4>
             <div className="flex flex-wrap gap-2">
               {[
                 "Cleaning Area: 1200 Sqm",
@@ -101,7 +101,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-lg mb-4">
+            <h4 className="font-semibold typo-heading3 mb-4">
               Work Duration & Location
             </h4>
             <div className="flex flex-wrap gap-2 items-center">

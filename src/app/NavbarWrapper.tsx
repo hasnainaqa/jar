@@ -5,7 +5,7 @@ import Navbar from "../components/ui/Navbar";
 
 export default function NavbarWrapper() {
   const pathname = usePathname();
-  const hideNavbar = pathname === "/signup" || pathname === "/profile-setup";
+  const hideNavbar = pathname === "/signup";
 
   return !hideNavbar ? <Navbar /> : null;
 }
