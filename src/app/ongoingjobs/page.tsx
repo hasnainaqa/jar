@@ -110,7 +110,7 @@ const PrivateJobs: JobCardProps[] = [
 
   return (
     <div className="p-[60px] pt-8 max-w-[1400px] mx-auto font-jakarta">
-      <div className="flex gap-8 border-b border-gray-200 mb-5">
+      <div className="flex gap-8 border-b border-[#F6F6F6] mb-5">
       {["All Ongoing Jobs", "Ongoing Service Contracts", "Private Jobs"].map((tab) => (
           <button
             key={tab}

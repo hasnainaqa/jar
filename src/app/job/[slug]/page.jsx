@@ -51,12 +51,12 @@ export default function JobDetails({ params }) {
   return (
     <div className="flex justify-center px-10 pt-8 gap-6 font-jakarta">
       <div className="w-full max-w-[1300px] flex flex-col-reverse lg:flex-row gap-6 ">
-        <div className="lg:w-[75%] mx-auto bg-white rounded-2xl shadow-dark p-6 space-y-6 ">
+        <div className="lg:w-[77%] mx-auto bg-white rounded-2xl shadow-dark p-6 space-y-6 ">
           <div>
             <h2 className="typo-heading3 font-semibold text-(--primary)">
               {job.title}
             </h2>
-            <p className="typo-body text-(--primary-black) mt-4">
+            <p className="typo-body font-medium text-(--primary-black) mt-4">
               {job.description}
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function JobDetails({ params }) {
             <h3 className="font-semibold typo-heading3 text-(--primary-black) mb-4">
               Services Needed
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {job?.services?.map((service, i) => (
                 <div
                   key={i}
@@ -80,7 +80,7 @@ export default function JobDetails({ params }) {
             <h3 className="font-semibold typo-heading3 text-(--primary-black) mb-4">
               Services Breakdown
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {job.breakdown.map((item) => (
                 <div
                   key={item}
@@ -95,7 +95,7 @@ export default function JobDetails({ params }) {
             <h3 className="font-semibold typo-heading3 text-(--primary-black) mb-4">
               Work Duration & Location
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               <div className="flex items-center gap-1.5 bg-(--light-grey) p-2.5 rounded-lg typo-small font-medium text-[#15120F]">
                 <CalenderBlank />
                 {job.duration}
@@ -106,7 +106,7 @@ export default function JobDetails({ params }) {
               </div>
             </div>
           </div>
-          <hr className="border-(--light-grey) border-[1px] w-[100%] " />
+          <hr className="border-(--light-grey) w-[100%] " />
 
           <div>
             <h3 className="font-semibold typo-heading3 text-(--primary-black) mb-4">
@@ -119,11 +119,11 @@ export default function JobDetails({ params }) {
               className="w-full"
               id="amount"
               placeholder="Amount"
-              inputClassName="h-[60px] pt-7.5 lg:w-[424px]"
+              inputClassName="h-[60px] pt-7.5 lg:w-[424px] input"
               placeholderAnimate={true}
             />
           </div>
-          <hr className="border-(--light-grey) border-[1px] w-[100%] " />
+          <hr className="border-(--light-grey) w-[100%] " />
           {/* Cover Letter */}
           <div>
             <div className="relative w-full">
@@ -166,7 +166,7 @@ alisadad@mail.com`}
                 accept="application/pdf, image/png, .doc, .docx"
               />
 
-              <div className="bg-(--light-grey) rounded-xl p-3 flex items-center justify-between gap-2 h-[60px] lg:w-[424px] cursor-pointer"
+              <div className="bg-(--light-grey) rounded-xl p-3 flex items-center justify-between h-[60px] lg:w-[424px] cursor-pointer"
                onClick={handleUploadClick}>
                 <div className="flex gap-4">
                   <File />
@@ -185,7 +185,7 @@ alisadad@mail.com`}
             </Button>
           </div>
         </div>
-        <div className="lg:w-[25%] ">
+        <div className="lg:w-[23%] ">
           <div className="w-full bg-(--white) p-6 rounded-2xl shadow-dark sticky top-28 ">
             <div className="flex items-center gap-4 pb-6">
               <div className="w-[60px] h-[60px] rounded-full bg-gray-200 overflow-hidden">
