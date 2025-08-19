@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../../components/ui/Button";
@@ -33,6 +33,7 @@ const initialStepData = {
 };
 
 const page = () => {
+  const router = useRouter(); // ✅ FIX: create router
   const [currentStep, setCurrentStep] = useState(0);
   const [stepData, setStepData] = useState(initialStepData);
 
@@ -75,24 +76,35 @@ const page = () => {
                 Previous
               </Button>
               <div className="flex ">
-                
-              {currentStep>=4 && <button
-                className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir text-sm cursor-pointer text-(--grey-text) "
-                onClick={() =>
-                  setCurrentStep((s) => Math.min(s + 1, steps.length - 1))
-                }
-                disabled={currentStep === steps.length - 1}>
-                Skip for know
-              </button>}
-              <Button
-                variant="primary"
-                className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir"
-                onClick={() =>
-                  setCurrentStep((s) => Math.min(s + 1, steps.length - 1))
-                }
-                disabled={currentStep === steps.length - 1}>
-                Next
-              </Button>
+                {currentStep >= 4 && (
+                  <button
+                    className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir text-sm cursor-pointer text-(--grey-text)"
+                    onClick={() => {
+                      if (currentStep === steps.length - 1) {
+                        router.push("/"); // navigate on last step
+                      } else {
+                        setCurrentStep((s) =>
+                          Math.min(s + 1, steps.length - 1)
+                        );
+                      }
+                    }}
+                    disabled={currentStep === steps.length - 1 && false}>
+                    Skip for now
+                  </button>
+                )}
+                <Button
+                  variant="primary"
+                  className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir"
+                  onClick={() => {
+                    if (currentStep === steps.length - 1) {
+                      router.push("/"); // navigate on last step
+                    } else {
+                      setCurrentStep((s) => Math.min(s + 1, steps.length - 1));
+                    }
+                  }}
+                  disabled={currentStep === steps.length - 1}>
+                  Next
+                </Button>
               </div>
             </div>
           </div>

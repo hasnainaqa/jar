@@ -30,7 +30,7 @@ const SignupForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 w-full font-jakarta"
+      className="flex flex-col gap-2 w-full font-jakarta max-w-[424px]"
     >
       <InputField
         name="name"

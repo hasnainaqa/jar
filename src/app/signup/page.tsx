@@ -10,8 +10,8 @@ const page = () => {
         <div className="w-1/2 py-6 px-12 flex flex-col pt-[100px] ">
           <Image
             src="/assets/icons/SiteLogo.svg"
-            width={115}
-            height={122}
+            width={117}
+            height={124}
             alt="JAR logo"
             className="mb-12"
           />

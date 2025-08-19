@@ -1,6 +1,5 @@
 // components/PhoneNumberInput.tsx
 "use client";
-
 import React from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -43,19 +42,19 @@ const PhoneNumberInput = <T extends FieldValues>({
         control={control}
         rules={rules}
         render={({ field }) => (
-          <div className="relative">
+          <div className="relative ">
             <PhoneInput
               {...field}
               defaultCountry="SA"
               international
               countryCallingCodeEditable={true}
-              className={`peer w-full px-4 py-2 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
+              className={`peer w-full px-4 pt-3 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
                 error ? "border-red-500 ring-red-200" : "border-(--light-grey)"
               } ${inputClassName}`}
             />
             <label
               htmlFor={name}
-              className="absolute -z-1 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-(--grey-text) peer-focus:text-(--grey-text)">
+              className="absolute -z-1 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-xs peer-placeholder-shown:text-(--grey-text) peer-focus:text-(--grey-text)">
               {placeholder}
             </label>
           </div>
