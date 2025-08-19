@@ -74,7 +74,13 @@ export default function Home() {
             {/*  Job Cards */}
             <div className="space-y-6  mb-6">
               {filteredJobs.length === 0 ? (
-                <p className="typo-body text-gray-500">No jobs found.</p>
+                <div className="p-6 rounded-2xl shadow-dark bg-[#ffffff]">
+                  <div className="flex justify-between items-start">
+                    <h3 className="typo-heading3 font-semibold text-(--primary-black)">
+                      No jobs found.{" "}
+                    </h3>
+                  </div>
+                </div>
               ) : (
                 filteredJobs.map((job, idx) => (
                   <div

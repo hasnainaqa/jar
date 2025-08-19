@@ -23,7 +23,7 @@ const SigninForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 w-full"
+      className="flex flex-col gap-2 w-full font-jakarta"
     >
       <InputField
         name="email"
@@ -47,7 +47,7 @@ const SigninForm = () => {
         error={errors.password?.message} // ✅ show error
       />
 
-      <Button type="submit" variant="primary" className="w-full mt-6">
+      <Button type="submit" variant="primary" className="w-full mt-6 font-anevir">
         Sign In
       </Button>
     </form>

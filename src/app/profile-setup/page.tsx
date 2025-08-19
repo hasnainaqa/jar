@@ -68,7 +68,7 @@ const page = () => {
             <div className="w-full flex max-w-[1300px] justify-between items-center">
               <Button
                 variant="secondary"
-                className="flex items-center gap-[5px] py-[19px] pl-2 pr-6 font-semibold "
+                className="flex items-center gap-[5px] py-[19px] pl-2 pr-6 font-semibold font-anevir"
                 onClick={() => setCurrentStep((s) => Math.max(s - 1, 0))}
                 disabled={currentStep === 0}>
                 <CaretLeft />
@@ -76,7 +76,7 @@ const page = () => {
               </Button>
               <Button
                 variant="primary"
-                className="flex items-center gap-[5px] py-[19px] px-8 font-semibold "
+                className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir"
                 onClick={() =>
                   setCurrentStep((s) => Math.min(s + 1, steps.length - 1))
                 }

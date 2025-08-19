@@ -20,7 +20,7 @@ const SecondStep = ({}: StepProps) => {
             onFileSelect={(file) => setSelectedFile(file)}
             className=" cursor-pointer [appearance:none]"
           >
-        <div className="relative flex items-center justify-between gap-4 bg-(--light-grey) rounded-2xl p-4 overflow-hidden w-[48%] cursor-pointer">
+        <div className="relative flex items-center justify-between gap-4 bg-(--light-grey) rounded-2xl p-4 overflow-hidden w-[48%] cursor-pointer font-jakarta">
           <div className="flex items-center gap-4">
             <Image
               src={"/assets/icons/FileGrey.svg"}
@@ -28,7 +28,7 @@ const SecondStep = ({}: StepProps) => {
               height={24}
               alt="file"
             />
-            <p className="text-(--black) typo-body font-jakarta">
+            <p className="text-(--black) typo-body ">
               {selectedFile ? selectedFile.name : "Upload Document"}
             </p>
           </div>

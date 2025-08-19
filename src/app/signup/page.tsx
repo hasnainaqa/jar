@@ -7,7 +7,7 @@ const page = () => {
     <div className="min-h-screen flex items-center justify-center ">
       <div className="w-full h-[-webkit-fill-available] flex">
         {/*  Form */}
-        <div className="w-1/2 py-6 px-12 flex flex-col justify-center">
+        <div className="w-1/2 py-6 px-12 flex flex-col pt-[100px] ">
           <Image
             src="/assets/icons/SiteLogo.svg"
             width={115}
@@ -16,8 +16,8 @@ const page = () => {
             className="mb-12"
           />
           <div className="mb-8">
-            <h1 className="font-bold typo-heading1">Sign Up</h1>
-            <p className="typo-body text-(--grey-text)">
+            <h1 className="font-bold typo-heading2 mb-3 font-anevir ">Sign Up</h1>
+            <p className="typo-body text-(--grey-text) font-jakarta">
               Please sign into your account
             </p>
           </div>

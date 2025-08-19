@@ -70,6 +70,22 @@
   font-weight: 700;
   font-display: swap;
 }
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNext-Regular.woff2") format("woff2"),
+       url("/fonts/AvenirNext-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNext-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
 
 
 body {
@@ -79,6 +95,10 @@ body {
 .font-jakarta {
   font-family: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
 }
+.font-anevir {
+  font-family: "Avenir Next", sans-serif;
+}
+
 .font-urbanist {
   font-family: "Urbanist", Arial, Helvetica, sans-serif;
 }
@@ -131,4 +151,8 @@ display: none;
 .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none;
 }

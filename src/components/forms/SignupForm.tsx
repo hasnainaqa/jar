@@ -30,7 +30,7 @@ const SignupForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 w-full"
+      className="flex flex-col gap-2 w-full font-jakarta"
     >
       <InputField
         name="name"
@@ -98,7 +98,7 @@ const SignupForm = () => {
         error={errors.confirmPassword?.message}
       />
 
-      <Button type="submit" variant="primary" className="w-full mt-6">
+      <Button type="submit" variant="primary" className="w-full mt-6 font-anevir">
         Sign Up
       </Button>
     </form>

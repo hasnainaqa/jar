@@ -13,7 +13,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
     <>
       <div
         onClick={onClose}
-        className={`fixed inset-0 bg-black z-40 transition-opacity duration-300  ${
+        className={`fixed inset-0 bg-black z-100 transition-opacity duration-300  ${
           isOpen
             ? "opacity-40 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -21,7 +21,7 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-full max-w-[648px] bg-(--white) shadow-xl z-50 
+        className={`fixed top-0 right-0 h-full w-full max-w-[648px] bg-(--white) shadow-xl z-100 
     transition-transform  duration-500 ease-in-out rounded-l-3xl overflow-y-auto pl-6 py-13 pr-10
     ${isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}>
         <div className="border p-6 rounded-xl border-(--light-grey)">
