@@ -9,6 +9,7 @@ import {
   RegisterOptions,
 } from "react-hook-form";
 import { EyeOpenIcon } from "../assets/icons";
+import { EyeClosed } from "lucide-react";
 
 interface InputFieldProps<T extends FieldValues> {
   name: Path<T>;
@@ -47,7 +48,7 @@ const InputField = <T extends FieldValues>({
   return (
     <div className={`${className}`}>
       {label && type !== "checkbox" && (
-        <label htmlFor={inputId} className="block text-sm font-medium mb-1">
+        <label htmlFor={inputId} className="block text-sm font-medium mb-2">
           {label}
         </label>
       )}
@@ -114,7 +115,7 @@ const InputField = <T extends FieldValues>({
                   onChange?.(value);
                 }}
                 onBlur={field.onBlur}
-                className={`peer relative z-1 w-full px-4 py-2 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
+                className={`peer relative z-1 w-full px-4 py-2 pt-5 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
                   error
                     ? "border-red-500 ring-red-200"
                     : "border-(--light-grey)"
@@ -127,14 +128,14 @@ const InputField = <T extends FieldValues>({
                   tabIndex={-1}
                   onClick={() => setShowPassword((prev) => !prev)}
                 >
-                  <EyeOpenIcon />
+                  {showPassword?( <EyeClosed />): (<EyeOpenIcon/>) }
                 </button>
               )}
 
               {placeholderAnimate && (
                 <label
                   htmlFor={inputId}
-                  className="absolute z-0 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-(--grey-text) peer-focus:text-(--grey-text)"
+                  className="absolute z-0 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-(--grey-text) peer-focus:top-1 peer-focus:text-xs peer-focus:text-(--grey-text)"
                 >
                   {placeholder}
                 </label>

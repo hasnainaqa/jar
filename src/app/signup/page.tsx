@@ -18,7 +18,7 @@ const page = () => {
           <div className="mb-8">
             <h1 className="font-bold typo-heading1">Sign Up</h1>
             <p className="typo-body text-(--grey-text)">
-              Please provide details to sign up
+              Please sign into your account
             </p>
           </div>
           <SignupForm />

@@ -4,7 +4,7 @@
 import React from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import { Control, Controller, FieldValues, Path, RegisterOptions } from "react-hook-form";
 
 interface PhoneNumberInputProps<T extends FieldValues> {
   name: Path<T>;
@@ -14,6 +14,7 @@ interface PhoneNumberInputProps<T extends FieldValues> {
   className?: string;
   inputClassName?: string;
   placeholder?: string;
+  rules?: RegisterOptions<T, Path<T>>; 
 }
 
 const PhoneNumberInput = <T extends FieldValues>({
@@ -24,6 +25,7 @@ const PhoneNumberInput = <T extends FieldValues>({
   className = "",
   inputClassName,
   placeholder,
+  rules, 
 }: PhoneNumberInputProps<T>) => {
   return (
     <div className={` ${className}`}>
@@ -33,6 +35,7 @@ const PhoneNumberInput = <T extends FieldValues>({
       <Controller
         name={name}
         control={control}
+        rules={rules}   
         render={({ field }) => (
           <div className="relative">
             <PhoneInput

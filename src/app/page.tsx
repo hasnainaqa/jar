@@ -5,8 +5,6 @@ import JobDetails from "@/components/modals/JobDetails";
 import {
   AlignBottom,
   CLeaning,
-  Cleaning,
-  CleaningIcon,
   MagnifyingGlass,
   MapPin,
   Star,
