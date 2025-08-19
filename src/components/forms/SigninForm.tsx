@@ -20,8 +20,11 @@ const SigninForm = () => {
 
   const router = useRouter();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: SigninFormData) => {
+    setLoading(true);
+    setError("");
     try {
       const res = await fetch("/api/auth/signin", {
         method: "POST",
@@ -39,43 +42,53 @@ const SigninForm = () => {
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false); // 🔹 Stop loading after response/error
     }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 w-full font-jakarta max-w-[424px]">
-      <InputField
-        name="email"
-        control={control}
-        type="email"
-        placeholder="Email"
-        inputClassName="h-[60px]"
-        placeholderAnimate
-        rules={{ required: "Email is required" }}
-        error={errors.email?.message}
-      />
+    <div>
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+        </div>
+      )}
+      <form
+        noValidate
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-2 w-full font-jakarta max-w-[424px]">
+        <InputField
+          name="email"
+          control={control}
+          type="email"
+          placeholder="Email"
+          inputClassName="h-[60px]"
+          placeholderAnimate
+          rules={{ required: "Email is required" }}
+          error={errors.email?.message}
+        />
 
-      <InputField
-        name="password"
-        control={control}
-        type="password"
-        placeholder="Password"
-        inputClassName="h-[60px]"
-        placeholderAnimate
-        rules={{ required: "Password is required" }}
-        error={errors.password?.message}
-      />
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+        <InputField
+          name="password"
+          control={control}
+          type="password"
+          placeholder="Password"
+          inputClassName="h-[60px]"
+          placeholderAnimate
+          rules={{ required: "Password is required" }}
+          error={errors.password?.message}
+        />
+        {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      <Button
-        type="submit"
-        variant="primary"
-        className="w-full mt-6 font-anevir">
-        Sign In
-      </Button>
-    </form>
+        <Button
+          type="submit"
+          variant="primary"
+          className="w-full mt-6 font-anevir">
+          Sign In
+        </Button>
+      </form>
+    </div>
   );
 };
 

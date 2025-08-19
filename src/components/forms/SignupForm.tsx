@@ -28,7 +28,7 @@ const SignupForm = () => {
   const password = watch("password");
 
   return (
-    <form
+    <form noValidate
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-2 w-full font-jakarta max-w-[424px]"
     >
