@@ -49,9 +49,9 @@ const page = () => {
 
   return (
     <>
-      <div className="py-2.5 bg-(--white) w-full flex flex-col justify-between mt-10 h-[calc(100vh-140px)]">
+      <div className="py-2.5 bg-(--white) w-full flex flex-col justify-between mt-12.5 h-[calc(100vh-140px)]">
         <div className="w-full flex justify-center px-10">
-          <div className="w-full max-w-[1300px] flex flex-col justify-between mb-10">
+          <div className="w-full max-w-[1300px] flex flex-col justify-between ">
             <StepComponent {...stepProps} />
           </div>
         </div>
@@ -74,6 +74,16 @@ const page = () => {
                 <CaretLeft />
                 Previous
               </Button>
+              <div className="flex ">
+                
+              {currentStep>=4 && <button
+                className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir text-sm cursor-pointer text-(--grey-text) "
+                onClick={() =>
+                  setCurrentStep((s) => Math.min(s + 1, steps.length - 1))
+                }
+                disabled={currentStep === steps.length - 1}>
+                Skip for know
+              </button>}
               <Button
                 variant="primary"
                 className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir"
@@ -83,6 +93,7 @@ const page = () => {
                 disabled={currentStep === steps.length - 1}>
                 Next
               </Button>
+              </div>
             </div>
           </div>
         </div>

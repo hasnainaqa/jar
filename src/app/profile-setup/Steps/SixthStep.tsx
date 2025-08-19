@@ -23,8 +23,8 @@ const SixthStep = ({}: StepProps) => {
   };
 
   return (
-    <div className="max-w-[648px] w-full">
-      <h1 className="font-urbanist typo-heading1 font-bold mb-8">
+    <div className="">
+      <h1 className="font-urbanist typo-heading1 font-bold mb-8 max-w-178 w-full">
         Add a short bio and profile picture HOA’s can get to know you better.
       </h1>
       <div
@@ -32,14 +32,14 @@ const SixthStep = ({}: StepProps) => {
           if (!imagePreview) fileInputRef.current?.click();
         }}
         aria-label="upload-picture"
-        className="group relative w-full h-[168px] rounded-[10px] bg-(--light-grey) flex items-center justify-center mb-6 cursor-pointer overflow-hidden"
+        className="group relative w-full h-[168px] rounded-[10px] bg-(--light-grey) flex items-center justify-center mb-6 cursor-pointer overflow-hidden max-w-[610px]"
       >
         {imagePreview ? (
           <>
             <img
               src={imagePreview}
               alt="Uploaded"
-              className="w-full h-full object-cover object-center"
+              className=" h-full object-cover object-center"
             />
             <Button
               type="button"
@@ -61,9 +61,9 @@ const SixthStep = ({}: StepProps) => {
           className="hidden"
         />
       </div>
-      <div className="border-2 border-(--light-grey) rounded-[10px] p-4">
+      <div className="border-2 border-(--light-grey) rounded-[10px] p-4 max-w-[610px] w-full">
         <textarea
-          className="focus:outline-none border-0 w-full min-h-[200px] resize-none text-(--primary-black) typo-label"
+          className="focus:outline-none border-0 w-full min-h-[173px] resize-none text-(--primary-black) typo-label"
           placeholder="Bio"
         />
       </div>

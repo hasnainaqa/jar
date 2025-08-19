@@ -33,7 +33,6 @@ const job = {
 
 export default function JobDetails({ params }) {
   const { control } = useForm();
-  const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=Saudi+Arabia&zoom=6&size=400x400&key=YOUR_API_KEY`;
   const fileInputRef = useRef(null);
     const [selectedFileName, setSelectedFileName] = useState('Upload Document');
 

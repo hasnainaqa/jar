@@ -4,7 +4,13 @@
 import React from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { Control, Controller, FieldValues, Path, RegisterOptions } from "react-hook-form";
+import {
+  Control,
+  Controller,
+  FieldValues,
+  Path,
+  RegisterOptions,
+} from "react-hook-form";
 
 interface PhoneNumberInputProps<T extends FieldValues> {
   name: Path<T>;
@@ -14,7 +20,7 @@ interface PhoneNumberInputProps<T extends FieldValues> {
   className?: string;
   inputClassName?: string;
   placeholder?: string;
-  rules?: RegisterOptions<T, Path<T>>; 
+  rules?: RegisterOptions<T, Path<T>>;
 }
 
 const PhoneNumberInput = <T extends FieldValues>({
@@ -25,7 +31,7 @@ const PhoneNumberInput = <T extends FieldValues>({
   className = "",
   inputClassName,
   placeholder,
-  rules, 
+  rules,
 }: PhoneNumberInputProps<T>) => {
   return (
     <div className={` ${className}`}>
@@ -35,7 +41,7 @@ const PhoneNumberInput = <T extends FieldValues>({
       <Controller
         name={name}
         control={control}
-        rules={rules}   
+        rules={rules}
         render={({ field }) => (
           <div className="relative">
             <PhoneInput
@@ -49,14 +55,17 @@ const PhoneNumberInput = <T extends FieldValues>({
             />
             <label
               htmlFor={name}
-              className="absolute -z-1 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-(--grey-text) peer-focus:text-(--grey-text)"
-            >
+              className="absolute -z-1 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-(--grey-text) peer-focus:text-(--grey-text)">
               {placeholder}
             </label>
           </div>
         )}
       />
-      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+      {error && (
+        <div className="relative text-xs text-red-500">
+          <span className="absolute bottom-1.5 right-3 ">{error}</span>
+        </div>
+      )}{" "}
     </div>
   );
 };

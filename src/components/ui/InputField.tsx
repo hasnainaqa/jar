@@ -52,7 +52,6 @@ const InputField = <T extends FieldValues>({
           {label}
         </label>
       )}
-
       <Controller
         name={name}
         control={control}
@@ -126,17 +125,15 @@ const InputField = <T extends FieldValues>({
                   type="button"
                   className="absolute z-[2] right-3 top-1/2 -translate-y-1/2 cursor-pointer"
                   tabIndex={-1}
-                  onClick={() => setShowPassword((prev) => !prev)}
-                >
-                  {showPassword?( <EyeClosed />): (<EyeOpenIcon/>) }
+                  onClick={() => setShowPassword((prev) => !prev)}>
+                  {showPassword ? <EyeClosed /> : <EyeOpenIcon />}
                 </button>
               )}
 
               {placeholderAnimate && (
                 <label
                   htmlFor={inputId}
-                  className="absolute z-0 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-(--grey-text) peer-focus:top-1 peer-focus:text-xs peer-focus:text-(--grey-text)"
-                >
+                  className="absolute z-0 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-(--grey-text) peer-focus:top-1 peer-focus:text-xs peer-focus:text-(--grey-text)">
                   {placeholder}
                 </label>
               )}
@@ -144,8 +141,11 @@ const InputField = <T extends FieldValues>({
           );
         }}
       />
-
-      {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+      {error && (
+        <div className="relative text-xs text-red-500">
+          <span className="absolute bottom-1.5 right-3 ">{error}</span>
+        </div>
+      )}{" "}
     </div>
   );
 };

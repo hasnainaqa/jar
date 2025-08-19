@@ -52,10 +52,6 @@ const SignupForm = () => {
         placeholderAnimate
         rules={{
           required: "Email is required",
-          pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // simple email regex
-            message: "Enter a valid email",
-          },
         }}
         error={errors.email?.message}
       />
