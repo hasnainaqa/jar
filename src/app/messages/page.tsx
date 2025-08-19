@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import MessagesChats from "@/components/modals/MessagesChats";
 import { Link as LinkIcon, Microphone } from "@/components/assets/icons";
@@ -7,24 +6,22 @@ import { Menu, X } from "lucide-react"; // simple icon for menu
 import Link from "next/link";
 import { Chats } from "@/components/modals/type";
 
-
-
 export default function ChatUI() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedChat, setSelectedChat] = useState<Chats | null>(null);
 
   return (
-    <div className="max-w-[1400px] sm:px-[60px] px-3 mx-auto mt-8 pb-12 font-jakarta ">
+    <div className="max-w-[1400px] sm:px-[60px] px-3 mx-auto mt-8 pb-12 font-jakarta mb-24 relative">
       <h2 className="font-semibold typo-heading3  ">Messages</h2>
       <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 sm:h-[80vh] overflow-hidden ">
         {sidebarOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-40 z-40 lg:hidden"
+            className="absolute inset-0 bg-black bg-opacity-40 z-40 lg:hidden"
             onClick={() => setSidebarOpen(false)}></div>
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full w-3/4 sm:w-[300px] bg-white border-r border-[#F3F3F3] z-50 transform transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-[360px] ${
+          className={`absolute top-0 left-0 h-full w-3/4 sm:w-[300px] bg-white border-r border-[#F3F3F3]  transform transition-transform duration-300 lg:relative lg:translate-x-0 lg:w-[360px] ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }`}>
           <MessagesChats
@@ -50,8 +47,7 @@ export default function ChatUI() {
                 className="rounded-full"
               />
               <div className="relative">
-
-              <span className=" absolute -left-8 -bottom-7 ml-1 h-3.5 w-3.5 bg-[#0EC72C] rounded-full"></span>
+                <span className=" absolute -left-8 -bottom-7 ml-1 h-3.5 w-3.5 bg-[#0EC72C] rounded-full"></span>
               </div>
               <div>
                 <p className="font-medium typo-heading3 text-[#333333]">
@@ -87,18 +83,15 @@ export default function ChatUI() {
                     }`}>
                     {msg.content}
                     {msg.sender !== "me" ? (
-                    <div className="typo-small mt-2.5 text-(--grey-text) leading-4">
-                    {msg.time}
+                      <div className="typo-small mt-2.5 text-(--grey-text) leading-4">
+                        {msg.time}
+                      </div>
+                    ) : (
+                      <div className="typo-small mt-2.5 text-(--white) leading-4">
+                        {msg.time}
+                      </div>
+                    )}
                   </div>
-                  ):(
-                    <div className="typo-small mt-2.5 text-(--white) leading-4">
-                      {msg.time}
-                    </div>
-                  )}
-                    
-                  </div>
-
-                 
                 </div>
               ) : (
                 <div
@@ -117,7 +110,7 @@ export default function ChatUI() {
                     </p>
                     <div className="absolute right-3 top-3 flex gap-2">
                       <button className="bg-(--danger) text-(--white) px-[9.5px] py-[5.5px] rounded-lg cursor-pointer">
-                        <X size={24}/>
+                        <X size={24} />
                       </button>
                       <button className="bg-[#00A400] text-(--white) px-3 py-1 rounded-lg cursor-pointer typo-small font-medium">
                         Accept

@@ -54,7 +54,7 @@ export default function Home() {
   );
 
   return (
-    <div className="flex justify-center px-10  pt-8 gap-6 font-jakarta">
+    <div className="flex justify-center px-10  pt-8 gap-6 font-jakarta ">
       <div className="w-full max-w-[1300px] flex justify-between flex-col-reverse lg:flex-row">
         <div className="lg:w-[75%] mr-6 ">
           <div className="flex-1">
@@ -130,63 +130,63 @@ export default function Home() {
           <div className="w-full ">
             <div className="sticky top-28 ">
               <div className="bg-(--white) p-6 rounded-2xl shadow-dark">
-              <div className="flex items-center gap-3 pb-6">
-                <div className="w-[60px] h-[60px] rounded-full bg-gray-200 overflow-hidden">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/41.jpg"
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="flex items-center gap-3 pb-6">
+                  <div className="w-[60px] h-[60px] rounded-full bg-gray-200 overflow-hidden">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/41.jpg"
+                      alt="Profile"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold typo-heading3 text-(--primary) ">
+                      Ali Sadad
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold typo-heading3 text-(--primary) ">
-                    Ali Sadad
-                  </p>
+                <hr className="border-(--light-grey) w-[100%] " />
+                <div className="flex items-center text-(--primary) gap-2 font-semibold typo-heading3 py-6">
+                  <AlignBottom />
+                  <h3>Statistics</h3>
+                </div>
+                <div className="flex gap-2 font-medium typo-small items-center ">
+                  <Star />
+                  <p>4.5</p>
+                </div>
+                <div className="mt-4 typo-body text-gray-600 flex gap-8">
+                  <div>
+                    <h2 className="font-semibold typo-label text-(--primary) pb-2">
+                      $200k+
+                    </h2>
+                    <p className="font-normal typo-small">Total Earnings</p>
+                  </div>
+                  <div>
+                    <h2 className="font-semibold typo-label text-(--primary) pb-2">
+                      150
+                    </h2>
+                    <p className="font-normal typo-small">Total Jobs</p>
+                  </div>
                 </div>
               </div>
-              <hr className="border-(--light-grey) w-[100%] " />
-              <div className="flex items-center text-(--primary) gap-2 font-semibold typo-heading3 py-6">
-                <AlignBottom />
-                <h3>Statistics</h3>
-              </div>
-              <div className="flex gap-2 font-medium typo-small items-center ">
-                <Star />
-                <p>4.5</p>
-              </div>
-              <div className="mt-4 typo-body text-gray-600 flex gap-8">
-                <div>
-                  <h2 className="font-semibold typo-label text-(--primary) pb-2">
-                    $200k+
-                  </h2>
-                  <p className="font-normal typo-small">Total Earnings</p>
-                </div>
-                <div>
-                  <h2 className="font-semibold typo-label text-(--primary) pb-2">
-                    150
-                  </h2>
-                  <p className="font-normal typo-small">Total Jobs</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="bg-(--white) p-6 rounded-lg shadow-dark mt-6 ">
-              <h4 className="font-semibold typo-heading3 mb-[18px] text-(--primary-black)">
-                Services Provided By You
-              </h4>
-              <div className="space-y-2">
-                {Array(3)
-                  .fill("Cleaning Services")
-                  .map((service, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center p-4 border border-(--light-grey) rounded-lg typo-body text-(--primary-black) gap-4">
-                      <CLeaning className = "h-[32px] w-[32px]" />
-                      {service}
-                    </div>
-                  ))}
+              <div className="bg-(--white) p-6 rounded-lg shadow-dark mt-6 ">
+                <h4 className="font-semibold typo-heading3 mb-[18px] text-(--primary-black)">
+                  Services Provided By You
+                </h4>
+                <div className="space-y-2">
+                  {Array(3)
+                    .fill("Cleaning Services")
+                    .map((service, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center p-4 border border-(--light-grey) rounded-lg typo-body text-(--primary-black) gap-4">
+                        <CLeaning className="h-[32px] w-[32px]" />
+                        {service}
+                      </div>
+                    ))}
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>

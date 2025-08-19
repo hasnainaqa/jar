@@ -49,7 +49,7 @@ export default function JobDetails({ params }) {
     }
   };
   return (
-    <div className="flex justify-center px-10 pt-8 gap-6 font-jakarta">
+    <div className="flex justify-center px-10 pt-8 gap-6 font-jakarta mb-24">
       <div className="w-full max-w-[1300px] flex flex-col-reverse lg:flex-row gap-6 ">
         <div className="lg:w-[77%] mx-auto bg-white rounded-2xl shadow-dark p-6 space-y-6 ">
           <div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState, FC } from "react";
+import { useState, FC, useEffect } from "react";
 import { Chats } from "@/components/modals/type";
 import { MagnifyingGlass } from "../assets/icons";
 
@@ -83,7 +83,10 @@ const MessagesChats: FC<MessagesChatsProps> = ({
   ]);
 
   const [activeChat, setActiveChat] = useState<Chats>(chats[0]);
-  setSelectedChat(activeChat);
+
+  useEffect(() => {
+    setSelectedChat(activeChat);
+  }, [selectedChat, activeChat]);
 
   return (
     <div>
@@ -105,12 +108,8 @@ const MessagesChats: FC<MessagesChatsProps> = ({
 
       {/* Search */}
       <div className="m-6  p-2 rounded-[10px] border border-[#E5E5E5] text-sm flex gap-2 w-auto items-center">
-        <MagnifyingGlass/>
-        <input
-          type="text"
-          placeholder="Search keywords"
-          className=""
-        />
+        <MagnifyingGlass />
+        <input type="text" placeholder="Search keywords" className="" />
       </div>
 
       {/* Chat List */}
@@ -140,13 +139,12 @@ const MessagesChats: FC<MessagesChatsProps> = ({
               <div className="flex-1">
                 <p className="typo-body font-normal text-[#808080]">
                   Lorem ipsum dolor sit amet...
-                {/* {chat.messages[chat.messages.length - 1].content.split(" ").slice(0, 5).join("") + " ..."} */}
+                  {/* {chat.messages[chat.messages.length - 1].content.split(" ").slice(0, 5).join("") + " ..."} */}
                 </p>
               </div>
             </div>
           </div>
           <p className="text-xs text-gray-400">
-            
             {chat.messages[chat.messages.length - 1].time.split(" ")[0]}
           </p>
         </div>
