@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Button from "../ui/Button";
 import InputField from "../ui/InputField";
 import PhoneNumberInput from "../ui/PhoneNumberInput.tsx";
+import { useRouter } from "next/navigation";
 
 type SignupFormData = {
   name: string;
@@ -20,9 +21,12 @@ const SignupForm = () => {
     watch,
     formState: { errors },
   } = useForm<SignupFormData>();
+  const router = useRouter();
 
   const onSubmit = (data: SignupFormData) => {
     console.log("Form Submitted:", data);
+    localStorage.setItem("user", JSON.stringify(data));
+    router.push("/profile-setup");
   };
 
   const password = watch("password");

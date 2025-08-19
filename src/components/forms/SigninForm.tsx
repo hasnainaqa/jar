@@ -11,40 +11,32 @@ type SigninFormData = {
   password: string;
 };
 
-const SigninForm = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SigninFormData>();
-
-  const router = useRouter();
+export default function SigninForm() {
+  const { handleSubmit, control, formState: { errors } } = useForm<SigninFormData>();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  const onSubmit = async (data: SigninFormData) => {
+  const onSubmit = (data: SigninFormData) => {
     setLoading(true);
     setError("");
-    try {
-      const res = await fetch("/api/auth/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
 
-      if (res.ok) {
-        router.push("/"); // ✅ redirect to homepage
-      } else {
-        const result = await res.json();
-        setError(result.message || "Invalid credentials");
-      }
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false); // 🔹 Stop loading after response/error
+    const storedUser = localStorage.getItem("user");
+    if (!storedUser) {
+      setError("No user found, please sign up first.");
+      setLoading(false);
+      return;
     }
+
+    const userData = JSON.parse(storedUser);
+
+    if (data.email === userData.email && data.password === userData.password) {
+      router.push("/"); // ✅ success
+    } else {
+      setError("Invalid credentials");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -92,4 +84,3 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;

@@ -81,7 +81,7 @@ const page = () => {
                     className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir text-sm cursor-pointer text-(--grey-text)"
                     onClick={() => {
                       if (currentStep === steps.length - 1) {
-                        router.push("/"); // navigate on last step
+                        router.push("/signin"); // navigate on last step
                       } else {
                         setCurrentStep((s) =>
                           Math.min(s + 1, steps.length - 1)
@@ -97,7 +97,7 @@ const page = () => {
                   className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir"
                   onClick={() => {
                     if (currentStep === steps.length - 1) {
-                      router.push("/"); // navigate on last step
+                      router.push("/signin"); // navigate on last step
                     } else {
                       setCurrentStep((s) => Math.min(s + 1, steps.length - 1));
                     }
