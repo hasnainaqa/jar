@@ -49,7 +49,7 @@ export default function SigninForm() {
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-2 w-full font-jakarta max-w-[424px]">
+        className="flex flex-col gap-4 w-full font-jakarta max-w-[424px]">
         <InputField
           name="email"
           control={control}

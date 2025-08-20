@@ -25,6 +25,8 @@ interface InputFieldProps<T extends FieldValues> {
   radioValue?: string | number;
   onChange?: (value: any) => void;
   placeholderAnimate?: boolean;
+  onInput?: (e: React.FormEvent<HTMLInputElement>) => void;
+
 }
 
 const InputField = <T extends FieldValues>({
@@ -41,6 +43,7 @@ const InputField = <T extends FieldValues>({
   radioValue,
   onChange,
   placeholderAnimate = false,
+  onInput,
 }: InputFieldProps<T>) => {
   const inputId = `${name}-${type}`;
   const [showPassword, setShowPassword] = useState(false);
@@ -113,6 +116,7 @@ const InputField = <T extends FieldValues>({
                   field.onChange(value);
                   onChange?.(value);
                 }}
+                onInput={onInput}  // ✅ here
                 onBlur={field.onBlur}
                 className={`peer relative z-1 w-full px-4 py-2 pt-5 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
                   error
@@ -142,8 +146,8 @@ const InputField = <T extends FieldValues>({
         }}
       />
       {error && (
-        <div className="relative text-xs text-red-500">
-          <span className="absolute bottom-1.5 right-3 ">{error}</span>
+        <div className="relative text-[10px] text-red-500">
+          <span className="absolute -bottom-3.5 right-3 ">{error}</span>
         </div>
       )}{" "}
     </div>

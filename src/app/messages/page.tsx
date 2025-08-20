@@ -2,7 +2,7 @@
 import { useState } from "react";
 import MessagesChats from "@/components/modals/MessagesChats";
 import { Link as LinkIcon, Microphone } from "@/components/assets/icons";
-import { Menu, X } from "lucide-react"; // simple icon for menu
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Chats } from "@/components/modals/type";
 

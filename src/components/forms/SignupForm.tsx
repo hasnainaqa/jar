@@ -32,10 +32,10 @@ const SignupForm = () => {
   const password = watch("password");
 
   return (
-    <form noValidate
+    <form
+      noValidate
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 w-full font-jakarta max-w-[424px]"
-    >
+      className="flex flex-col gap-4 w-full font-jakarta max-w-[424px]">
       <InputField
         name="name"
         control={control}
@@ -44,6 +44,12 @@ const SignupForm = () => {
         inputClassName="h-[60px]"
         placeholderAnimate
         rules={{ required: "Name is required" }}
+        onInput={(e) => {
+          e.currentTarget.value = e.currentTarget.value.replace(
+            /[^A-Za-z\s]/g,
+            ""
+          );
+        }}
         error={errors.name?.message}
       />
 
@@ -69,7 +75,8 @@ const SignupForm = () => {
           required: "Phone number is required",
           validate: (value) =>
             value && value.length > 8 ? true : "Enter a valid phone number",
-        }}        error={errors.phoneNumber?.message}
+        }}
+        error={errors.phoneNumber?.message}
       />
 
       <InputField
@@ -92,13 +99,15 @@ const SignupForm = () => {
         placeholderAnimate
         rules={{
           required: "Confirm your password",
-          validate: (value) =>
-            value === password || "Passwords do not match", // ✅ confirm password check
+          validate: (value) => value === password || "Password does not match", // ✅ confirm password check
         }}
         error={errors.confirmPassword?.message}
       />
 
-      <Button type="submit" variant="primary" className="w-full mt-6 font-anevir">
+      <Button
+        type="submit"
+        variant="primary"
+        className="w-full mt-6 font-anevir">
         Sign Up
       </Button>
     </form>

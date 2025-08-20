@@ -125,6 +125,8 @@ export default function JobDetails({ params }) {
           <hr className="border-(--light-grey) w-[100%] " />
           {/* Cover Letter */}
           <div>
+          <h2 className="typo-heading3 font-semibold mb-4 text-(--primary-black)">Add Cover Letter </h2>
+
             <div className="relative w-full">
               <textarea
                 id="coverLetter"
@@ -169,7 +171,7 @@ alisadad@mail.com`}
                onClick={handleUploadClick}>
                 <div className="flex gap-4">
                   <File />
-                  {selectedFileName}
+                  { selectedFileName.slice(0, 25)}
                 </div>
                 <button className="cursor-pointer">
                 <Plus />
@@ -186,6 +188,8 @@ alisadad@mail.com`}
         </div>
         <div className="lg:w-[23%] ">
           <div className="w-full bg-(--white) p-6 rounded-2xl shadow-dark sticky top-28 ">
+            <div>
+              <h2 className="typo-heading3 font-semibold mb-4 text-(--primary-black)">Client Information</h2>
             <div className="flex items-center gap-4 pb-6">
               <div className="w-[60px] h-[60px] rounded-full bg-gray-200 overflow-hidden">
                 <img
@@ -197,7 +201,7 @@ alisadad@mail.com`}
               <p className="font-semibold typo-heading3 text-(--primary) ">
                 Ali Sadad
               </p>
-            </div>
+            </div></div>
             <div className="">
               <h3 className="font-semibold typo-heading3 text-(--primary-black)">
                 Location

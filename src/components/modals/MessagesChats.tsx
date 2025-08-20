@@ -13,6 +13,7 @@ const MessagesChats: FC<MessagesChatsProps> = ({
   selectedChat,
 }) => {
   const [activeTab, setActiveTab] = useState("Unread");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [chats] = useState<Chats[]>([
     {
@@ -84,6 +85,13 @@ const MessagesChats: FC<MessagesChatsProps> = ({
 
   const [activeChat, setActiveChat] = useState<Chats>(chats[0]);
 
+  const filteredChats = chats.filter((chat) => {
+    const nameMatch = chat.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+  
+    return nameMatch
+  });
+  
   useEffect(() => {
     setSelectedChat(activeChat);
   }, [selectedChat, activeChat]);
@@ -106,14 +114,19 @@ const MessagesChats: FC<MessagesChatsProps> = ({
         ))}
       </div>
 
-      {/* Search */}
       <div className="m-6  p-2 rounded-[10px] border border-[#E5E5E5] text-sm flex gap-2 w-auto items-center">
         <MagnifyingGlass />
-        <input type="text" placeholder="Search keywords" className="" />
+        <input
+          type="text"
+          placeholder="Search keywords"
+          className="focus:outline-none "
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       {/* Chat List */}
-      {chats.map((chat) => (
+      {filteredChats.map((chat) => (
         <div
           key={chat.id}
           onClick={() => setActiveChat(chat)}

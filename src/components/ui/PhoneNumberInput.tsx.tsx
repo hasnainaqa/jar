@@ -61,9 +61,9 @@ const PhoneNumberInput = <T extends FieldValues>({
         )}
       />
       {error && (
-        <div className="relative text-xs text-red-500">
-          <span className="absolute bottom-1.5 right-3 ">{error}</span>
-        </div>
+        <div className="relative text-[10px] text-red-500">
+          <span className="absolute -bottom-3.5 right-3 ">{error}</span>
+          </div>
       )}{" "}
     </div>
   );

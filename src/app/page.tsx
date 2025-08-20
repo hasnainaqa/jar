@@ -119,7 +119,7 @@ export default function Home() {
                           setSelectedJob(job);
                           setIsPopupOpen(true);
                         }}
-                        className="!h-[35px] !w-[52px] !p-[10px] text-[12px] !rounded-lg !font-medium">
+                        className="!h-[35px] !w-[52px] !p-[10px] !text-xs !rounded-lg !font-medium">
                         Bid
                       </Button>
                     </div>
@@ -149,7 +149,7 @@ export default function Home() {
                   </div>
                 </div>
                 <hr className="border-(--light-grey) w-[100%] " />
-                <div className="flex items-center text-(--primary) gap-2 font-semibold typo-heading3 py-6">
+                <div className="flex items-center text-(--primary) gap-2 font-semibold typo-label py-6">
                   <AlignBottom />
                   <h3>Statistics</h3>
                 </div>

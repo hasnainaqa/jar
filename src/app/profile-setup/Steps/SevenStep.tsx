@@ -28,6 +28,15 @@ const SevenStep = ({}: StepProps) => {
             className="w-full"
             placeholder="First Name"
             inputClassName="h-[60px]"
+            rules={{
+              required: "Name is required",
+            }}
+            onInput={(e) => {
+              e.currentTarget.value = e.currentTarget.value.replace(
+                /[^A-Za-z\s]/g,
+                ""
+              );
+            }}
             placeholderAnimate={true}
           />
           <InputField
@@ -37,16 +46,23 @@ const SevenStep = ({}: StepProps) => {
             className="w-full"
             placeholder="Last Name"
             inputClassName="h-[60px]"
+            rules={{ required: "Name is required" }}
+            onInput={(e) => {
+              e.currentTarget.value = e.currentTarget.value.replace(
+                /[^A-Za-z\s]/g,
+                ""
+              );
+            }}
             placeholderAnimate={true}
-          />{" "}
+          />
         </div>
         <InputField
           name="accountNumber"
           control={control}
-          type="number"
+          type="text"
           className="w-full"
           placeholder="Bank Account Number"
-          inputClassName="h-[60px]"
+          inputClassName="h-[60px] input"
           placeholderAnimate={true}
         />
 
@@ -67,7 +83,9 @@ const SevenStep = ({}: StepProps) => {
                 alt="file"
               />
               <p className="text-(--black) typo-body font-jakarta">
-                {selectedFile ? selectedFile.name : "Upload Document"}
+                {selectedFile
+                  ? selectedFile.name.slice(0, 20)
+                  : "Upload Document"}
               </p>
             </div>
             <Plus2Icon />

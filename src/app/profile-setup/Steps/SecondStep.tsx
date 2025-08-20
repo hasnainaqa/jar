@@ -29,7 +29,7 @@ const SecondStep = ({}: StepProps) => {
               alt="file"
             />
             <p className="text-(--black) typo-body ">
-              {selectedFile ? selectedFile.name : "Upload Document"}
+              {selectedFile ? selectedFile.name.slice(0, 20) : "Upload Document"}
             </p>
           </div>
           <Plus2Icon />

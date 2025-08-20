@@ -100,10 +100,10 @@ const JobDetails = ({ selectedJob, onClose, isOpen }: JobDetailModalProps) => {
               Work Duration & Location
             </h4>
             <div className="flex flex-wrap gap-2 items-center">
-              <div className="bg-[#f3f3f3] px-3 py-[6px] rounded-lg typo-body text-[#15120F] font-medium flex items-center gap-2">
+              <div className="bg-[#f3f3f3] px-3 py-[6px] rounded-lg typo-small text-[#15120F] font-medium flex items-center gap-2">
                 <CalenderBlank /> 1 Year
               </div>
-              <div className="bg-[#f3f3f3] px-3 py-[6px] rounded-lg typo-body text-[#15120F] font-medium flex items-center gap-2">
+              <div className="bg-[#f3f3f3] px-3 py-[6px] rounded-lg typo-small text-[#15120F] font-medium flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
                 {selectedJob?.location}
               </div>
