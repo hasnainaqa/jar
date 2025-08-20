@@ -1,11 +1,16 @@
 "use client";
 import { useState } from "react";
-import MessagesChats from "@/components/modals/MessagesChats";
+import dynamic from "next/dynamic";
+
 import { Link as LinkIcon, Microphone } from "@/components/assets/icons";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Chats } from "@/components/modals/type";
 
+const MessagesChats = dynamic(() => import("@/components/modals/MessagesChats"), {
+  ssr: false, 
+  loading: () => <p>Loading chat...</p>, 
+});
 export default function ChatUI() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedChat, setSelectedChat] = useState<Chats | null>(null);
