@@ -8,7 +8,7 @@ import {
   Path,
   RegisterOptions,
 } from "react-hook-form";
-import { EyeOpenIcon } from "../assets/icons";
+import { Currency, EyeOpenIcon } from "../assets/icons";
 import { EyeClosed } from "lucide-react";
 
 interface InputFieldProps<T extends FieldValues> {
@@ -26,7 +26,6 @@ interface InputFieldProps<T extends FieldValues> {
   onChange?: (value: any) => void;
   placeholderAnimate?: boolean;
   onInput?: (e: React.FormEvent<HTMLInputElement>) => void;
-
 }
 
 const InputField = <T extends FieldValues>({
@@ -104,6 +103,12 @@ const InputField = <T extends FieldValues>({
             : type;
           return (
             <div className="relative">
+              {type === "number" && (
+                <div className="absolute left-4 top-10 -translate-y-1/2 text-gray-500">
+                  <Currency />
+                </div>
+              )}
+
               <input
                 id={inputId}
                 type={inputType}
@@ -116,14 +121,17 @@ const InputField = <T extends FieldValues>({
                   field.onChange(value);
                   onChange?.(value);
                 }}
-                onInput={onInput}  // ✅ here
+                onInput={onInput}
                 onBlur={field.onBlur}
-                className={`peer relative z-1 w-full px-4 py-2 pt-5 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
+                className={`peer relative z-1 w-full ${
+                  type === "number" ? "pl-8" : "px-4"
+                } py-2 pt-5 border-2 rounded-[10px] focus:outline-none text-(--primary-black) ${
                   error
                     ? "border-red-500 ring-red-200"
                     : "border-(--light-grey)"
                 } ${inputClassName}`}
               />
+
               {isPassword && (
                 <button
                   type="button"
@@ -136,10 +144,15 @@ const InputField = <T extends FieldValues>({
 
               {placeholderAnimate && (
                 <label
-                  htmlFor={inputId}
-                  className="absolute z-0 left-4 top-1 text-(--gray-2) text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-(--grey-text) peer-focus:top-1 peer-focus:text-xs peer-focus:text-(--grey-text)">
-                  {placeholder}
-                </label>
+                htmlFor={inputId}
+                className={`absolute z-0 left-4 top-1 text-(--gray-2) text-sm transition-all
+                  ${type === "number"
+                    ? "top-1 text-xs text-(--grey-text)" // always up for number
+                    : "peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-(--grey-text) peer-focus:top-1 peer-focus:text-xs peer-focus:text-(--grey-text)"
+                  }`}>
+                {placeholder}
+              </label>
+              
               )}
             </div>
           );

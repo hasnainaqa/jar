@@ -112,7 +112,7 @@ export default function JobDetails({ params }) {
               Add Total Prices
             </h3>
             <InputField
-              name="accountNumber"
+              name="number"
               control={control}
               type="number"
               className="w-full"

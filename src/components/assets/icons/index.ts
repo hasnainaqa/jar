@@ -22,6 +22,7 @@ import Microphone from "./Microphone.svg"
 import Link from "./Link.svg"
 import CLeaning from "./cLeaning.svg"
 import CaretLeft from "./CaretLeft.svg"
+import Currency from "./currency.svg"
 
 export {
   PlusIcon,
@@ -48,4 +49,5 @@ export {
   Link,
   CLeaning,
   CaretLeft,
+  Currency,
 };

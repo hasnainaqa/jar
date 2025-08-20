@@ -70,8 +70,14 @@ const page = () => {
               <Button
                 variant="secondary"
                 className="flex items-center gap-[5px] py-[19px] pl-2 pr-6 font-semibold font-anevir"
-                onClick={() => setCurrentStep((s) => Math.max(s - 1, 0))}
-                disabled={currentStep === 0}>
+                onClick={() => {
+                  if (currentStep === 0) {
+                    router.push("/signup");
+                  } else {
+                    setCurrentStep((s) => Math.max(s - 1, 0));
+                  }
+                }}
+                disabled={false}>
                 <CaretLeft />
                 Previous
               </Button>
