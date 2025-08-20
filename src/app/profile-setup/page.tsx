@@ -47,7 +47,7 @@ const page = () => {
     <>
       <div className="py-2.5 bg-(--white) w-full flex flex-col justify-between mt-12.5 h-[calc(100vh-140px)]">
         <div className="w-full flex justify-center px-10">
-          <div className="w-full max-w-[1300px] flex flex-col justify-between ">
+          <div className="w-full max-w-[1300px] flex flex-col justify-between mb-10">
             <StepComponent {...stepProps} />
           </div>
         </div>

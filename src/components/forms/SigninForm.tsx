@@ -12,7 +12,11 @@ type SigninFormData = {
 };
 
 export default function SigninForm() {
-  const { handleSubmit, control, formState: { errors } } = useForm<SigninFormData>();
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<SigninFormData>();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -47,7 +51,7 @@ export default function SigninForm() {
         </div>
       )}
       <form
-        noValidate
+      noValidate
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 w-full font-jakarta max-w-[424px]">
         <InputField
@@ -57,7 +61,21 @@ export default function SigninForm() {
           placeholder="Email"
           inputClassName="h-[60px]"
           placeholderAnimate
-          rules={{ required: "Email is required" }}
+          rules={{
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Enter a valid email address",
+            },
+            minLength: {
+              value: 5,
+              message: "Email must be at least 5 characters",
+            },
+            maxLength: {
+              value: 50,
+              message: "Email must not exceed 50 characters",
+            },
+          }}
           error={errors.email?.message}
         />
 
@@ -82,5 +100,4 @@ export default function SigninForm() {
       </form>
     </div>
   );
-};
-
+}

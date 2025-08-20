@@ -53,18 +53,30 @@ const SignupForm = () => {
         error={errors.name?.message}
       />
 
-      <InputField
-        name="email"
-        control={control}
-        type="email"
-        placeholder="Email"
-        inputClassName="h-[60px]"
-        placeholderAnimate
-        rules={{
-          required: "Email is required",
-        }}
-        error={errors.email?.message}
-      />
+<InputField
+          name="email"
+          control={control}
+          type="email"
+          placeholder="Email"
+          inputClassName="h-[60px]"
+          placeholderAnimate
+          rules={{
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Enter a valid email address",
+            },
+            minLength: {
+              value: 5,
+              message: "Email must be at least 5 characters",
+            },
+            maxLength: {
+              value: 50,
+              message: "Email must not exceed 50 characters",
+            },
+          }}
+          error={errors.email?.message}
+        />
 
       <PhoneNumberInput
         name="phoneNumber"
