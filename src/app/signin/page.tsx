@@ -62,7 +62,7 @@ const page = () => {
         </div>
 
         {/* image with border */}
-        <div className="w-1/2 h-[100vh] relative overflow-hidden">
+        <div className="w-1/2 h-[100vh] sticky top-0">
           <div className="w-full h-full">
             <Image
               src="/assets/SignupImage.png"

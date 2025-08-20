@@ -3,24 +3,19 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../../components/ui/Button";
-import FirstStep from "./Steps/FirstStep";
-import SecondStep from "./Steps/SecondStep";
-import ThirdStep from "./Steps/ThirdStep";
-import FourthStep from "./Steps/FourthStep";
-import FifthStep from "./Steps/FifthStep";
-import SixthStep from "./Steps/SixthStep";
-import SevenStep from "./Steps/SevenStep";
+import dynamic from "next/dynamic";
 import { CaretLeft } from "@/components/assets/icons";
-
 const steps = [
-  FirstStep,
-  SecondStep,
-  ThirdStep,
-  FourthStep,
-  FifthStep,
-  SixthStep,
-  SevenStep,
+  dynamic(() => import("./Steps/FirstStep")),
+  dynamic(() => import("./Steps/SecondStep")),
+  dynamic(() => import("./Steps/ThirdStep")),
+  dynamic(() => import("./Steps/FourthStep")),
+  dynamic(() => import("./Steps/FifthStep")),
+  dynamic(() => import("./Steps/SixthStep")),
+  dynamic(() => import("./Steps/SevenStep")),
 ];
+
+
 
 const initialStepData = {
   first: {},
@@ -87,7 +82,7 @@ const page = () => {
                     className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir text-sm cursor-pointer text-(--grey-text)"
                     onClick={() => {
                       if (currentStep === steps.length - 1) {
-                        router.push("/signin"); // navigate on last step
+                        router.push("/signin"); 
                       } else {
                         setCurrentStep((s) =>
                           Math.min(s + 1, steps.length - 1)
@@ -103,12 +98,12 @@ const page = () => {
                   className="flex items-center gap-[5px] py-[19px] px-8 font-semibold font-anevir"
                   onClick={() => {
                     if (currentStep === steps.length - 1) {
-                      router.push("/signin"); // navigate on last step
+                      router.push("/signin"); 
                     } else {
                       setCurrentStep((s) => Math.min(s + 1, steps.length - 1));
                     }
                   }}
-                  disabled={currentStep === steps.length - 1}>
+                  disabled={currentStep === steps.length - 1 && false}>
                   Next
                 </Button>
               </div>
