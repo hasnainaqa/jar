@@ -16,7 +16,7 @@ export default function ChatUI() {
   const [selectedChat, setSelectedChat] = useState<Chats | null>(null);
 
   return (
-    <div className="max-w-[1400px] sm:px-[60px] px-3 mx-auto mt-8 pb-12 font-jakarta mb-24 relative">
+    <div className="max-w-[1400px] sm:px-[60px] px-3 mx-auto mt-8 font-jakarta mb-4 relative">
       <h2 className="font-semibold typo-heading3  ">Messages</h2>
       <div className=" shadow-dark rounded-xl flex flex-col lg:flex-row mt-6 sm:h-[80vh] overflow-hidden ">
         {sidebarOpen && (
